@@ -18,6 +18,7 @@ package kotlin.reflect.jvm.internal
 
 import org.jetbrains.kotlin.descriptors.TypeParameterDescriptor
 import org.jetbrains.kotlin.types.Variance
+import kotlin.jvm.internal.TypeParameterReference
 import kotlin.reflect.KType
 import kotlin.reflect.KTypeParameter
 import kotlin.reflect.KVariance
@@ -51,5 +52,5 @@ internal class KTypeParameterImpl(override val descriptor: TypeParameterDescript
         descriptor.hashCode()
 
     override fun toString() =
-        ReflectionObjectRenderer.renderTypeParameter(descriptor)
+        TypeParameterReference.toString(this)
 }
