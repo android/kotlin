@@ -10,11 +10,21 @@ plugins {
 val packedJars by configurations.creating
 
 dependencies {
-    compile(kotlinStdlib())
     packedJars(project(":kotlin-symbol-processing")) { isTransitive = false }
     packedJars(project(":kotlin-symbol-processing-api")) { isTransitive = false }
     packedJars(project(":kotlin-ksp-gradle")) { isTransitive = false }
-    runtime(projectRuntimeJar(":kotlin-compiler-embeddable"))
+    if (hasProperty("kspBaseVersion")) {
+        val kspBaseVersion = properties["kspBaseVersion"] as String
+        implementation(kotlin("stdlib", kspBaseVersion))
+        runtime(kotlin("compiler-embeddable", kspBaseVersion))
+    } else {
+        compile(kotlinStdlib())
+        runtime(projectRuntimeJar(":kotlin-compiler-embeddable"))
+    }
+}
+
+repositories {
+    maven("https://dl.bintray.com/kotlin/kotlin-eap")
 }
 
 projectTest(parallel = true) {
