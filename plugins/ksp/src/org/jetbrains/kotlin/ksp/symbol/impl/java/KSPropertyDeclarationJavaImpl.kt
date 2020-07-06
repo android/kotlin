@@ -63,15 +63,7 @@ class KSPropertyDeclarationJavaImpl(val psi: PsiField) : KSPropertyDeclaration {
     }
 
     override fun overrides(overridee: KSPropertyDeclaration): Boolean {
-        if (!overridee.isOpen())
-            return false
-        if (!overridee.isVisibleFrom(this))
-            return false
-        val superDescriptor = ResolverImpl.instance.resolvePropertyDeclaration(overridee) ?: return false
-        val subDescriptor = ResolverImpl.instance.resolveJavaDeclaration(psi) as? FunctionDescriptor ?: return false
-        return OverridingUtil.DEFAULT.isOverridableBy(
-                superDescriptor, subDescriptor, null
-        ).result == OverridingUtil.OverrideCompatibilityInfo.Result.OVERRIDABLE
+        return false
     }
 
     override fun isDelegated(): Boolean {

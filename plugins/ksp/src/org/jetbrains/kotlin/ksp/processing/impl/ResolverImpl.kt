@@ -203,7 +203,7 @@ class ResolverImpl(
         return when (property) {
             is KSPropertyDeclarationImpl -> resolveDeclaration(property.ktProperty)
             is KSPropertyDeclarationDescriptorImpl -> property.descriptor
-            is KSPropertyDeclarationJavaImpl -> resolveJavaDeclaration(property.psi)
+            is KSPropertyDeclarationJavaImpl -> null
             else -> throw IllegalStateException("unexpected class: ${property.javaClass}")
         } as PropertyDescriptor?
     }
