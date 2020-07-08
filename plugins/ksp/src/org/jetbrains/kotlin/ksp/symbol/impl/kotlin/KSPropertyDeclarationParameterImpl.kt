@@ -79,6 +79,8 @@ class KSPropertyDeclarationParameterImpl(val ktParameter: KtParameter) : KSPrope
             return false
         if (!overridee.isVisibleFrom(this))
             return false
+        if (overridee.origin == Origin.JAVA)
+            return false
         val superDescriptor = ResolverImpl.instance.resolvePropertyDeclaration(overridee) ?: return false
         val subDescriptor = ResolverImpl.instance.resolveDeclaration(ktParameter) as PropertyDescriptor
         return OverridingUtil.DEFAULT.isOverridableBy(

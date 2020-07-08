@@ -99,6 +99,8 @@ class KSPropertyDeclarationDescriptorImpl(val descriptor: VariableDescriptorWith
             return false
         if (!overridee.isVisibleFrom(this))
             return false
+        if (overridee.origin == Origin.JAVA)
+            return false
         val superDescriptor = ResolverImpl.instance.resolvePropertyDeclaration(overridee) ?: return false
         return OverridingUtil.DEFAULT.isOverridableBy(
                 superDescriptor, descriptor, null
