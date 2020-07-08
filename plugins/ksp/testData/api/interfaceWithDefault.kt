@@ -5,11 +5,11 @@
 // emptyFun: true
 // foo: false
 // bar: true
-// contains: true
+// iterator: true
 // equals: false
 // END
 // FILE: a.kt
-interface KTInterface: List<String> {
+interface KTInterface: Sequence<String> {
     fun funLiteral() = 1
 
     fun funWithBody(): Int {

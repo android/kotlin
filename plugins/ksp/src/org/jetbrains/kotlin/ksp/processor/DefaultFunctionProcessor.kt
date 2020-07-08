@@ -18,7 +18,7 @@ class DefaultFunctionProcessor : AbstractTestProcessor() {
         val javaInterface = resolver.getClassDeclarationByName(resolver.getKSNameFromString("C")) as KSClassDeclaration
         result.addAll(checkFunctions(ktInterface, listOf("funLiteral", "funWithBody", "emptyFun")))
         result.addAll(checkFunctions(javaInterface, listOf("foo", "bar")))
-        val containsFun = ktInterface.getAllFunctions().single { it.simpleName.asString() == "contains" }
+        val containsFun = ktInterface.getAllFunctions().single { it.simpleName.asString() == "iterator" }
         result.add("${containsFun.simpleName.asString()}: ${containsFun.isAbstract}")
         val equalsFun = ktInterface.getAllFunctions().single { it.simpleName.asString() == "equals" }
         result.add("${equalsFun.simpleName.asString()}: ${equalsFun.isAbstract}")
