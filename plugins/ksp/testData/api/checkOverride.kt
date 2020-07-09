@@ -45,7 +45,7 @@ open class KotlinList(): JavaList() {
     }
 
     @Bazz2Anno
-    val bazz: Int get() {
+    open val bazz: Int get() {
         return 1
     }
 }

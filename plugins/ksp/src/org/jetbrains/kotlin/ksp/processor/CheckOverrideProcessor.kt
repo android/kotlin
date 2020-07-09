@@ -38,7 +38,7 @@ class CheckOverrideProcessor : AbstractTestProcessor() {
         results.add("${equalFunKt.qualifiedName?.asString()} overrides ${equalFunJava.qualifiedName?.asString()}: ${equalFunKt.overrides(equalFunJava)}")
         results.add("${bazPropKt.qualifiedName?.asString()} overrides ${baz2PropKt.qualifiedName?.asString()}: ${bazPropKt.overrides(baz2PropKt)}")
         results.add("${bazPropKt.qualifiedName?.asString()} overrides ${bazz2PropKt.qualifiedName?.asString()}: ${bazPropKt.overrides(bazz2PropKt)}")
-        results.add("${bazzPropKt.qualifiedName?.asString()} overrides ${bazz2PropKt.qualifiedName?.asString()}: ${bazPropKt.overrides(baz2PropKt)}")
-        results.add("${bazzPropKt.qualifiedName?.asString()} overrides ${baz2PropKt.qualifiedName?.asString()}: ${bazPropKt.overrides(bazz2PropKt)}")
+        results.add("${bazzPropKt.qualifiedName?.asString()} overrides ${bazz2PropKt.qualifiedName?.asString()}: ${bazzPropKt.overrides(bazz2PropKt)}")
+        results.add("${bazzPropKt.qualifiedName?.asString()} overrides ${baz2PropKt.qualifiedName?.asString()}: ${bazzPropKt.overrides(baz2PropKt)}")
     }
 }
