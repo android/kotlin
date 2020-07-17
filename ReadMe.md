@@ -401,7 +401,7 @@ Here are some planned features that have not yet been implemented:
 <a name="try"></a>
 ## Try it out!
 
-Here's a sample processor that you can check out: https://github.com/android/kotlin/releases/download/1.4-M1-dev-experimental-20200626/playground-1.4-M1-dev-experimental-20200626.zip
+Here's a sample processor that you can check out: https://github.com/android/kotlin/releases/download/1.4-M1-dev-experimental-20200716/playground-1.4-M1-dev-experimental-20200716.zip
 
 ### Create a processor of your own
 
@@ -442,7 +442,7 @@ Here's a sample processor that you can check out: https://github.com/android/kot
   }
 
   dependencies {
-      implementation("org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4-M1-dev-experimental-20200626")
+      implementation("org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4-M1-dev-experimental-20200716")
   }
   ```
 
@@ -476,7 +476,7 @@ Here's a sample processor that you can check out: https://github.com/android/kot
     }
 
     dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4-M1-dev-experimental-20200626")
+        implementation("org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4-M1-dev-experimental-20200716")
     }
     ```
 
@@ -516,7 +516,7 @@ Here's a sample processor that you can check out: https://github.com/android/kot
 
   ```
   plugins {
-      id("kotlin-ksp") version "1.4-M1-dev-experimental-20200626"
+      id("kotlin-ksp") version "1.4-M1-dev-experimental-20200716"
       kotlin("jvm") 
   }
 
