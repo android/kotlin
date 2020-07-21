@@ -10,8 +10,8 @@ import org.jetbrains.kotlin.ksp.symbol.*
 import org.jetbrains.kotlin.ksp.symbol.impl.KSObjectCache
 import org.jetbrains.kotlin.ksp.symbol.impl.binary.KSTypeArgumentDescriptorImpl
 import org.jetbrains.kotlin.ksp.symbol.impl.replaceTypeArguments
-import org.jetbrains.kotlin.types.AbbreviatedType
 import org.jetbrains.kotlin.types.KotlinType
+import org.jetbrains.kotlin.types.getAbbreviation
 import org.jetbrains.kotlin.types.typeUtil.*
 
 class KSTypeImpl private constructor(
@@ -26,7 +26,7 @@ class KSTypeImpl private constructor(
             ksTypeArguments: List<KSTypeArgument>? = null,
             annotations: List<KSAnnotation> = listOf()
         ): KSTypeImpl {
-            val abbrev = (kotlinType as? AbbreviatedType)?.abbreviation
+            val abbrev = kotlinType.getAbbreviation()
             return cache.getOrPut(Pair(kotlinType, abbrev)) { KSTypeImpl(kotlinType, abbrev, ksTypeArguments, annotations) }
         }
     }
