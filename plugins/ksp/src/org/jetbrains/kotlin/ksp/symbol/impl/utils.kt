@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.descriptors.MemberDescriptor
 import org.jetbrains.kotlin.descriptors.Modality
 import org.jetbrains.kotlin.descriptors.Visibilities
 import org.jetbrains.kotlin.js.resolve.diagnostics.findPsi
+import org.jetbrains.kotlin.ksp.processing.impl.ResolverImpl
 import org.jetbrains.kotlin.ksp.symbol.*
 import org.jetbrains.kotlin.ksp.symbol.impl.binary.KSFunctionDeclarationDescriptorImpl
 import org.jetbrains.kotlin.ksp.symbol.impl.binary.KSTypeArgumentDescriptorImpl
@@ -165,6 +166,12 @@ fun PsiElement.findParentDeclaration(): KSDeclaration? {
         is PsiMethod -> KSFunctionDeclarationJavaImpl.getCached(parent)
         else -> null
     }
+}
+
+fun PsiElement.toLocation(): Location {
+    val file = this.containingFile
+    val document = ResolverImpl.instance.psiDocumentManager.getDocument(file) ?: return NonExistLocation
+    return FileLocation(file.virtualFile.path, document.getLineNumber(document.getLineStartOffset(this.textOffset)))
 }
 
 // TODO: handle local functions/classes correctly
