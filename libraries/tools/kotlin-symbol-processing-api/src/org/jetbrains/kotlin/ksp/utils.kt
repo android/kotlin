@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.ksp.processing.Resolver
 import org.jetbrains.kotlin.ksp.symbol.*
 
 /**
- * Try to resolve the [KSClassDeclaration] for a class [T], using its fully qualified name.
+ * Try to resolve the [KSClassDeclaration] for a class using its fully qualified name.
  *
  * @param T The class to resolve a [KSClassDeclaration] for.
  * @return Resolved [KSClassDeclaration] if found, `null` otherwise.
