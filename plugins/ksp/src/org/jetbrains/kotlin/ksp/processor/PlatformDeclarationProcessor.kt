@@ -29,8 +29,8 @@ open class PlatformDeclarationProcessor: AbstractTestProcessor() {
             r.add(it.qualifiedName?.asString())
             r.add(it.isActual)
             r.add(it.isExpect)
-            it.findActuals().forEach { r.add(it.containingFile?.fileName) }
-            it.findExpects().forEach { r.add(it.containingFile?.fileName) }
+            r.add(it.findActuals().joinToString(", ", "[", "]") { it.containingFile?.fileName.toString() })
+            r.add(it.findExpects().joinToString(", ", "[", "]") { it.containingFile?.fileName.toString() })
             results.add(r.map { it.toString() }.joinToString(" : "))
         }
     }

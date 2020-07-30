@@ -12,13 +12,19 @@ import org.jetbrains.kotlin.ksp.processing.impl.findExpectsInKSDeclaration
 import org.jetbrains.kotlin.ksp.symbol.KSDeclaration
 import org.jetbrains.kotlin.ksp.symbol.KSExpectActual
 import org.jetbrains.kotlin.psi.KtDeclaration
+import org.jetbrains.kotlin.psi.psiUtil.containingClassOrObject
 import org.jetbrains.kotlin.psi.psiUtil.hasActualModifier
 import org.jetbrains.kotlin.psi.psiUtil.hasExpectModifier
 
 class KSExpectActualImpl(val declaration: KtDeclaration) : KSExpectActual {
+    /**
+     * "All actual declarations that match any part of an expected declaration need to be marked as actual."
+     */
     override val isActual: Boolean = declaration.hasActualModifier()
 
-    override val isExpect: Boolean = declaration.hasExpectModifier()
+    private fun KtDeclaration.isExpect(): Boolean = hasExpectModifier() || containingClassOrObject?.isExpect() == true
+
+    override val isExpect: Boolean = declaration.isExpect()
 
     private val expects: List<KSDeclaration> by lazy {
         descriptor?.findExpectsInKSDeclaration() ?: emptyList()
