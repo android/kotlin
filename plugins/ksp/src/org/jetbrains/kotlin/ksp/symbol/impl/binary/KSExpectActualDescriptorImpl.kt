@@ -22,7 +22,7 @@ class KSExpectActualDescriptorImpl(val descriptor: MemberDescriptor) : KSExpectA
 
     override fun findExpects(): List<KSDeclaration> {
         if (!isActual)
-            throw IllegalStateException("Subject isn't declared as actual.")
+            return emptyList()
         return expects
     }
 
@@ -32,7 +32,7 @@ class KSExpectActualDescriptorImpl(val descriptor: MemberDescriptor) : KSExpectA
 
     override fun findActuals(): List<KSDeclaration> {
         if (!isExpect)
-            throw IllegalStateException("Subject isn't declared as expect.")
+            return emptyList()
         return actuals
     }
 }

@@ -1,19 +1,19 @@
 // WITH_RUNTIME
 // TEST PROCESSOR: PlatformDeclarationProcessor
 // EXPECTED:
-// Actual.kt : Clazz : true : false : Subject isn't declared as expect. : Expect.kt
-// Actual.kt : Clazz.foo : true : false : Subject isn't declared as expect. : Expect.kt
-// Actual.kt : Klass : true : false : Subject isn't declared as expect. : Expect.kt
-// Actual.kt : bar : true : false : Subject isn't declared as expect. : Expect.kt
-// Actual.kt : baz : true : false : Subject isn't declared as expect. : Expect.kt
-// Coffee.java : Coffee : false : false : Not a Kotlin class, function, property or typealias : Not a Kotlin class, function, property or typealias
-// Coffee.java : Coffee.baz : false : false : Not a Kotlin class, function, property or typealias : Not a Kotlin class, function, property or typealias
-// Coffee.java : Coffee.foo : false : false : Not a Kotlin class, function, property or typealias : Not a Kotlin class, function, property or typealias
-// Expect.kt : Clazz : false : true : Actual.kt : Subject isn't declared as actual.
-// Expect.kt : Clazz.foo : false : false : Subject isn't declared as expect. : Subject isn't declared as actual.
-// Expect.kt : Klass : false : true : Actual.kt : Subject isn't declared as actual.
-// Expect.kt : bar : false : true : Actual.kt : Subject isn't declared as actual.
-// Expect.kt : baz : false : true : Actual.kt : Subject isn't declared as actual.
+// Actual.kt : Clazz : true : false : Expect.kt
+// Actual.kt : Clazz.foo : true : false : Expect.kt
+// Actual.kt : Klass : true : false : Expect.kt
+// Actual.kt : bar : true : false : Expect.kt
+// Actual.kt : baz : true : false : Expect.kt
+// Coffee.java : Coffee : false : false
+// Coffee.java : Coffee.baz : false : false
+// Coffee.java : Coffee.foo : false : false
+// Expect.kt : Clazz : false : true : Actual.kt
+// Expect.kt : Clazz.foo : false : false
+// Expect.kt : Klass : false : true : Actual.kt
+// Expect.kt : bar : false : true : Actual.kt
+// Expect.kt : baz : false : true : Actual.kt
 // END
 
 // FILE: Expect.kt

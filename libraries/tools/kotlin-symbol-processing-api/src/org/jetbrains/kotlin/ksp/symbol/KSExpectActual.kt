@@ -24,16 +24,14 @@ interface KSExpectActual {
     /**
      * Finds all corresponding `actual` implementations for `this`.
      *
-     * @return list of corresponding `actual` implementations.
-     * @throws IllegalStateException if this is not an Kotlin `expect` class, function or property.
+     * @return a list of corresponding `actual` implementations, or an empty list if not applicable.
      */
     fun findActuals(): List<KSDeclaration>
 
     /**
      * Finds all corresponding `expect` declarations for `this`.
      *
-     * @return list of corresponding `expect` declarations.
-     * @throws IllegalStateException if this is not an Kotlin `actual` class, function, property or typealias.
+     * @return a list of corresponding `expect` implementations, or an empty list if not applicable.
      */
     fun findExpects(): List<KSDeclaration>
 }

@@ -13,7 +13,7 @@ class KSExpectActualNoImpl : KSExpectActual {
 
     override val isExpect: Boolean = false
 
-    override fun findActuals(): List<KSDeclaration> = throw IllegalStateException("Not a Kotlin class, function, property or typealias")
+    override fun findActuals(): List<KSDeclaration> = emptyList()
 
-    override fun findExpects(): List<KSDeclaration> = throw IllegalStateException("Not a Kotlin class, function, property or typealias")
+    override fun findExpects(): List<KSDeclaration> = emptyList()
 }
