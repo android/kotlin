@@ -294,7 +294,7 @@ class ResolverImpl(
         }
     }
 
-    // TODO: local scope
+    // Finds closest non-local scope.
     fun KtElement.findLexicalScope(): LexicalScope {
         return containingNonLocalDeclaration()?.let {
             resolveSession.declarationScopeProvider.getResolutionScopeForDeclaration(it)
